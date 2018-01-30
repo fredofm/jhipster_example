@@ -1,0 +1,22 @@
+entity Teacher {
+ teacherId Long,
+ teacherName String,
+ teacherSurname String
+}
+
+enum CourseLevelValue {
+BASIC, ADVANCED, PRO
+}
+
+entity Course {
+ courseId Long,
+ courseName String,
+ courseLevel CourseLevelValue
+}
+
+relationship OneToMany {
+Teacher{course} to Course
+}
+
+paginate Course with infinite-scroll
+paginate Teacher with pagination
